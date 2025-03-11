@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipzyy</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #0d1b2a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: glowHeader 3s infinite alternate;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ec4899;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+    animation: pulseBtn 1.5s infinite;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.tools {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.tools h3 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background: linear-gradient(145deg, #1e293b, #2d3b55);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), inset 0 0 8px rgba(59, 130, 246, 0.2);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #3b82f6, #ec4899);
+    border-radius: 17px;
+    z-index: -1;
+    filter: blur(4px);
+    animation: glowBorder 4s infinite alternate;
+}
+
+.tool-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(236, 72, 153, 0.3);
+}
+
+.tool-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.tool-card p {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    background: #1e293b;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulseBtn {
+    0% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
+}
+
+@keyframes glowHeader {
+    0% { box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3); }
+    100% { box-shadow: 0 4px 30px rgba(236, 72, 153, 0.5); }
+}
+
+@keyframes glowBorder {
+    0% { background: linear-gradient(45deg, #3b82f6, #ec4899); }
+    50% { background: linear-gradient(45deg, #ec4899, #9333ea); }
+    100% { background: linear-gradient(45deg, #9333ea, #3b82f6); }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .tools h3 {
+        font-size: 1.5rem;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Clipzyy</h1>
+            <ul class="nav-links">
+                <li><a href="bg.html">Background Remover</a></li>
+                <li><a href="picEnha.html">Image Enhancer</a></li>
+                <li><a href="txt2img.html">Text-to-Image</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+                </li><a href="store.html">Editor Store</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Your AI-Powered Creative Suite</h2>
+            <p>Explore cutting-edge tools to enhance, generate, and transform your content with ease.</p>
+            <a href="#tools" class="btn btn-primary">Get Started</a>
+        </section>
+        <section class="tools" id="tools">
+            <h3>Our Tools</h3>
+            <div class="tool-grid">
+                <a href="bg.html" class="tool-card">
+                    <h4>Background Remover</h4>
+                    <p>Effortlessly remove backgrounds from your images.</p>
+                </a>
+                <a href="picEnha.html" class="tool-card">
+                    <h4>Image Enhancer</h4>
+                    <p>Boost the quality of your images with AI.</p>
+                </a>
+                <a href="txt2img.html" class="tool-card">
+                    <h4>Text-to-Image</h4>
+                    <p>Create stunning visuals from text prompts.</p>
+                </a>
+                <a href="chatbot.html" class="tool-card">
+                    <h4>Chatbot</h4>
+                    <p>Chat with an AI assistant powered by Grok.</p>
+                </a>
+            </a>
+            <a href="store.html" class="tool-card">
+                <h4>Editor Store</h4>
+                <p>Download your favorite MOD application</p>
+            </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 AI Tools Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+    </script>
+</body>
+</html>
+<html>
