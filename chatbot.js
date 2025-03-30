@@ -4,7 +4,7 @@ const messageInput = document.getElementById('messageInput');
 const sendBtn = document.getElementById('sendBtn');
 const loader = document.getElementById('loader');
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 // Send message on button click or Enter key
 sendBtn.addEventListener('click', sendMessage);
