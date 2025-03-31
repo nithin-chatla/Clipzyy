@@ -4,7 +4,7 @@ const messageInput = document.getElementById('messageInput');
 const sendBtn = document.getElementById('sendBtn');
 const loader = document.getElementById('loader');
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 // Send message on button click or Enter key
 sendBtn.addEventListener('click', sendMessage);
@@ -64,7 +64,7 @@ async function getBotResponse(userMessage) {
         body: JSON.stringify({
             model: 'openai/gpt-3.5-turbo', // Default model
             messages: [
-                { role: 'system', content: 'You are Lovely, created by Srian Group. Respond as if you are an AI assistant with a friendly, helpful tone.' },
+                { role: 'system', content: 'You are Luna, created by Srian Group. Respond as if you are an AI assistant with a friendly, helpful tone.' },
                 { role: 'user', content: userMessage }
             ]
         })
@@ -84,6 +84,6 @@ async function getBotResponse(userMessage) {
     } catch (error) {
         console.error(error);
         loader.style.display = 'none';
-        addMessage('bot', "Oops, something went wrong! I'm Srian, created by Srian Group, and I'll try to help you again if you ask.");
+        addMessage('bot', "Oops, something went wrong! I'm Luna, created by Srian Group, and I'll try to help you again if you ask.");
     }
 }
