@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #0d1b2a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            animation: glowHeader 3s infinite alternate;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ec4899;
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+
+        .search-bar {
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .tools {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tool-card {
+            background: linear-gradient(145deg, #1e293b, #2d3b55);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), inset 0 0 8px rgba(59, 130, 246, 0.2);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .tool-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(236, 72, 153, 0.3);
+        }
+
+        .tool-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            background: #1e293b;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        function searchApps() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let cards = document.querySelectorAll(".tool-card");
+            
+            cards.forEach(card => {
+                let title = card.querySelector("h4").innerText.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">App Store
+            </div><br>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search apps..." onkeyup="searchApps()">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <h2>Download Your Favorite Apps</h2>
+            <h2>For Windows</h2>
+            <p>Find and download the best apps with one click.</p>
+        </div>
+        <div class="tools">
+            <div class="tool-card">
+                <h4>Adobe PhotoShop</h4>
+                <p>Get real-time weather updates. Password '123' </p>
+                <a href="https://download2392.mediafire.com/3putmo8k2icgQin2JX1X1fugwCtuFU8ZoV2R8-36RP2XpC3K-QB-0viZn0tG5JkcAOiXeG7rWB5gxceRC7LYVyTs5pOisX2o6kcRyG1pg0J2FIqpbJ8Dolnm_ZkO33wm3LrER7jUCOuZTg-sGO1m0Oc-Z9zxLjM4m2jfS6XuHEMoCF6u/5lk1ieny2opy4xh/AdobePS2025v265016.zip" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>Finel Cut Pro</h4>
+                <p>Organize your tasks efficiently. Password is 123 </p>
+                <a href="https://download2331.mediafire.com/x8kewl61vrzg--N_RsD28bMHrP63Ux1YUZAKoEg-1eatU5cnNdsLsIWGG0xIRNhxHkpb-fkBGZjIOzPbBPdLG0irWPkML2tUxxUSAP2iWjHQLpH_HwE5uk3Erhhf6OIpODrtDTISLa_yPvGIqh1awFfydjyy_ZB7uN8gDEfIZIT7kan0/i7tqzy60ehbolp8/FCut+_P11M.zip" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>DaVinci Resolve Studio 19.1.4</h4>
+                <p>Track your daily workouts. Password is : '123'</p>
+                <a href="https://download2352.mediafire.com/6yvwqldx2n9gPglf-srvut3gDygQm8XPEYruZE5i2WhoaNgtRtEmHRnMuLh6BBoYyTKiduuz47ZAZqsUtZOS-hFc9kEErP2wFaqgAd720j2Oy7swmfk-JYw6nnnaNHDXC80AKNEx8GxAtoL3Rdk9QxLblqYBOylnmu-DoD2FyhsgUUnY/ipne7p8eqh2jail/BmDDaVinciRS1914.zip" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>Wondershare Filmora 14.3.2.11147 </h4>
+                <p>Track your daily workouts. Password is : '123'</p>
+                <a href="https://download2350.mediafire.com/xcmv1fe70abgPjmnh8wOXThMymcN4-Ng7p1LUUY1nIqFEvL0A0hCV2bc7Ookuujz0Gidqqs3H7Ff8-dfa9WTQnd2yhaQ-Sr2QXdaiCcpEh5KjCtu7cMRuMKAlCLn43Fw27MkDrpyeWYuKQYxgqDDzyXVZGbH2WV2BksLTsPG3AKs2FKi/jwmm191oiajcup2/WSFilmora143211147x64.zip" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>CapCut 6.0.0.2273 </h4>
+                <p>Discover new recipes every day. Password is  :  ' 123 ' </p>
+                <a href="https://lf16-capcut.faceulv.com/obj/capcutpc-packages-us/packages/CapCut_6_0_0_2273_beta3_capcutpc_beta_creatortool.exe" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>Adobe After Effects Download (Latest 2025) </h4>
+                <p>Discover new recipes every day. Password is  :  ' 123 ' </p>
+                <a href="https://download2299.mediafire.com/mv9q300hqmwg17kvsTqc7zqMk_4VjewVQjDD_iOrXJ4ROppIbkvrpcD-IxcRr3-uk4GITvU8-hqwEZChstG_HrMfYWMlrUpBPWrvHN_PXnRR4PDW5JBfwCjAFPIV_pyhevUAO8C75e6kscb5fo1FH4HrLDmSIt6x5393ZN-kdRS_qQlB/sb7wwwxgpma171v/AdAE2025v2510068.zip" download>Download</a>
+            </div>
+            <div class="tool-card">
+                <h4>CapCut 6.0.0.2273 </h4>
+                <p>Discover new recipes every day. Password is  :  ' 123 ' </p>
+                <a href="" download>Download</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Clipzyy App Store. All rights reserved.
+    </footer>
+</body>
+</html>
